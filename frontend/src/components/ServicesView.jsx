@@ -110,8 +110,8 @@ export default function ServicesView({ user, API_URL, onAppointmentBooked }) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
       {/* Hero Banner */}
       <div className="glass-card" style={{
-        background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(24, 27, 40, 0.9) 100%)',
-        border: '1px solid var(--border-accent)',
+        background: 'linear-gradient(135deg, #fce7f3 0%, #fdf2f8 100%)',
+        border: '1px solid #fbcfe8',
         padding: '36px',
         display: 'flex',
         justifyContent: 'space-between',
@@ -121,17 +121,17 @@ export default function ServicesView({ user, API_URL, onAppointmentBooked }) {
       }}>
         <div>
           <span className="badge badge-gold" style={{ marginBottom: '10px' }}><Sparkles size={14} /> Luxury Salon Care</span>
-          <h1 style={{ fontSize: '2.2rem', margin: '8px 0' }}>Exquisite Beauty & Wellness Services</h1>
-          <p style={{ color: 'var(--text-muted)', maxWidth: '600px' }}>
+          <h1 style={{ fontSize: '2.2rem', margin: '8px 0', color: '#831843' }}>Exquisite Beauty & Wellness Services</h1>
+          <p style={{ color: '#475569', maxWidth: '600px' }}>
             Book premium hair styling, facial care, luxury manicures, and body therapy across our Gujarat salon branches.
           </p>
         </div>
         <div style={{ display: 'flex', gap: '16px' }}>
-          <div style={{ textAlign: 'center', background: 'rgba(255,255,255,0.04)', padding: '14px 20px', borderRadius: '12px' }}>
+          <div style={{ textAlign: 'center', background: '#ffffff', border: '1px solid #fbcfe8', padding: '14px 20px', borderRadius: '12px', boxShadow: '0 4px 12px rgba(236,72,153,0.06)' }}>
             <h3 style={{ color: 'var(--primary)', fontSize: '1.5rem', margin: 0 }}>8+</h3>
             <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Cities & Branches</span>
           </div>
-          <div style={{ textAlign: 'center', background: 'rgba(255,255,255,0.04)', padding: '14px 20px', borderRadius: '12px' }}>
+          <div style={{ textAlign: 'center', background: '#ffffff', border: '1px solid #fbcfe8', padding: '14px 20px', borderRadius: '12px', boxShadow: '0 4px 12px rgba(236,72,153,0.06)' }}>
             <h3 style={{ color: 'var(--primary)', fontSize: '1.5rem', margin: 0 }}>11+</h3>
             <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Core Services</span>
           </div>

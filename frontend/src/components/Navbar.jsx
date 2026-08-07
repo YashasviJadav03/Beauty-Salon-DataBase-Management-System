@@ -4,9 +4,10 @@ import { Scissors, User, LogOut, ShieldCheck, Sparkles, Database, Calendar, Pack
 export default function Navbar({ user, activeTab, setActiveTab, onOpenAuth, onLogout, onQuickLogin }) {
   return (
     <header style={{
-      background: 'rgba(15, 17, 26, 0.85)',
+      background: 'rgba(255, 255, 255, 0.92)',
       backdropFilter: 'blur(16px)',
-      borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+      borderBottom: '1px solid #fbcfe8',
+      boxShadow: '0 4px 20px rgba(236, 72, 153, 0.06)',
       position: 'sticky',
       top: 0,
       zIndex: 100
@@ -24,20 +25,20 @@ export default function Navbar({ user, activeTab, setActiveTab, onOpenAuth, onLo
         {/* Brand Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }} onClick={() => setActiveTab('services')}>
           <div style={{
-            background: 'linear-gradient(135deg, #d4af37 0%, #aa820a 100%)',
+            background: 'linear-gradient(135deg, #ec4899 0%, #db2777 100%)',
             width: '42px',
             height: '42px',
             borderRadius: '12px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 4px 14px rgba(212, 175, 55, 0.3)'
+            boxShadow: '0 4px 14px rgba(236, 72, 153, 0.35)'
           }}>
-            <Scissors size={22} color="#0f111a" />
+            <Scissors size={22} color="#ffffff" />
           </div>
           <div>
-            <h2 style={{ fontSize: '1.25rem', margin: 0, lineHeight: 1.2 }}>Luxe Salon & Spa</h2>
-            <p style={{ fontSize: '0.75rem', color: 'var(--primary)', margin: 0, letterSpacing: '1px' }}>DATABASE MANAGEMENT SYSTEM</p>
+            <h2 style={{ fontSize: '1.25rem', margin: 0, lineHeight: 1.2, color: '#831843' }}>Luxe Salon & Spa</h2>
+            <p style={{ fontSize: '0.72rem', color: '#db2777', margin: 0, letterSpacing: '1px', fontWeight: 600 }}>DATABASE MANAGEMENT SYSTEM</p>
           </div>
         </div>
 
@@ -111,7 +112,7 @@ export default function Navbar({ user, activeTab, setActiveTab, onOpenAuth, onLo
             </button>
             <button
               className="btn btn-secondary"
-              style={{ fontSize: '0.75rem', padding: '6px 10px', borderColor: 'var(--primary)' }}
+              style={{ fontSize: '0.75rem', padding: '6px 10px', borderColor: '#ec4899', color: '#be185d' }}
               title="Quick Demo Admin Login"
               onClick={() => onQuickLogin('admin@salon.com', 'admin123')}
             >
@@ -122,7 +123,7 @@ export default function Navbar({ user, activeTab, setActiveTab, onOpenAuth, onLo
           {user ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff' }}>
+                <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#831843' }}>
                   {user.profile?.C_Name || user.profile?.S_name || user.profile?.A_Name || user.email}
                 </div>
                 <span className={`badge ${user.role === 'admin' ? 'badge-gold' : user.role === 'staff' ? 'badge-warning' : 'badge-success'}`}>

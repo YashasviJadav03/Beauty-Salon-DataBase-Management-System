@@ -104,11 +104,11 @@ export default function QueriesView({ API_URL }) {
 
       {/* Query Metadata & SQL Code Display */}
       {queryResult && (
-        <div className="glass-card" style={{ background: 'rgba(15, 17, 26, 0.95)' }}>
+        <div className="glass-card" style={{ background: '#ffffff' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
             <div>
               <span className="badge badge-gold" style={{ marginBottom: '6px' }}>Query #{queryResult.id}</span>
-              <h3 style={{ fontSize: '1.3rem', margin: '4px 0' }}>{queryResult.title}</h3>
+              <h3 style={{ fontSize: '1.3rem', margin: '4px 0', color: '#831843' }}>{queryResult.title}</h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>"{queryResult.description}"</p>
             </div>
             <span className="badge badge-success">
@@ -117,11 +117,11 @@ export default function QueriesView({ API_URL }) {
           </div>
 
           {/* SQL Snippet View */}
-          <div style={{ background: '#0a0c14', padding: '14px', borderRadius: '8px', border: '1px solid var(--border-glass)', margin: '14px 0' }}>
-            <div style={{ fontSize: '0.78rem', color: 'var(--primary)', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <div style={{ background: '#fdf2f8', padding: '14px', borderRadius: '10px', border: '1px solid #fbcfe8', margin: '14px 0' }}>
+            <div style={{ fontSize: '0.78rem', color: '#db2777', fontWeight: 600, marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
               <Code size={14} /> EXECUTED SQL CODE:
             </div>
-            <pre style={{ margin: 0, fontSize: '0.88rem', color: '#e2e8f0', fontFamily: 'Courier New, monospace', overflowX: 'auto', whiteSpace: 'pre-wrap' }}>
+            <pre style={{ margin: 0, fontSize: '0.88rem', color: '#831843', fontFamily: 'Courier New, monospace', overflowX: 'auto', whiteSpace: 'pre-wrap' }}>
               {queryResult.sql}
             </pre>
           </div>
