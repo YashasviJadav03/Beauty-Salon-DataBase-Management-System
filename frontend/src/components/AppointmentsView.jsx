@@ -96,7 +96,7 @@ export default function AppointmentsView({ user, API_URL }) {
                   </td>
                   <td>
                     <div style={{ fontWeight: 700, color: '#34d399' }}>
-                      ${apt.Payable_amount ? parseFloat(apt.Payable_amount).toFixed(2) : parseFloat(apt.Ser_Price).toFixed(2)}
+                      ₹{apt.Payable_amount ? parseFloat(apt.Payable_amount).toFixed(2) : parseFloat(apt.Ser_Price).toFixed(2)}
                     </div>
                     <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Bill #{apt.Bill_ID || 'N/A'}</div>
                   </td>

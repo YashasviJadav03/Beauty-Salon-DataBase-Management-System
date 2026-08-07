@@ -37,7 +37,7 @@ export default function BillingView({ API_URL }) {
         </div>
         <div className="glass-card" style={{ padding: '12px 20px', textAlign: 'right', border: '1px solid var(--primary)' }}>
           <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Total Payable Collected</span>
-          <h2 style={{ color: 'var(--primary)', margin: 0 }}>${totalCollected.toFixed(2)}</h2>
+          <h2 style={{ color: 'var(--primary)', margin: 0 }}>₹{totalCollected.toFixed(2)}</h2>
         </div>
       </div>
 
@@ -63,7 +63,7 @@ export default function BillingView({ API_URL }) {
                   <td style={{ fontWeight: 700, color: 'var(--primary)' }}>#INV-{b.Bill_ID}</td>
                   <td style={{ fontWeight: 600 }}>{b.Customer_Name || 'Walk-in Customer'}</td>
                   <td>{b.Service_Name || 'Salon Service'}</td>
-                  <td>${parseFloat(b.Amount).toFixed(2)}</td>
+                  <td>₹{parseFloat(b.Amount).toFixed(2)}</td>
                   <td>
                     {b.Discount > 0 ? (
                       <span className="badge badge-gold">{b.Discount}% OFF</span>
@@ -72,7 +72,7 @@ export default function BillingView({ API_URL }) {
                     )}
                   </td>
                   <td style={{ color: '#34d399', fontWeight: 700, fontSize: '1.05rem' }}>
-                    ${parseFloat(b.Payable_amount).toFixed(2)}
+                    ₹{parseFloat(b.Payable_amount).toFixed(2)}
                   </td>
                   <td>
                     <span className="badge badge-warning">{b.Payment_mode}</span>

@@ -47,7 +47,7 @@ export default function AdminView({ API_URL }) {
             <DollarSign size={18} color="var(--primary)" />
           </div>
           <h2 style={{ color: 'var(--primary)', fontSize: '2rem', marginTop: '6px' }}>
-            ${parseFloat(stats.totalRevenue).toFixed(2)}
+            ₹{parseFloat(stats.totalRevenue).toFixed(2)}
           </h2>
           <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>From {stats.totalBills} billing invoices</span>
         </div>
@@ -102,7 +102,7 @@ export default function AdminView({ API_URL }) {
                   <td><span className="badge badge-gold">{apt.Ser_Name}</span></td>
                   <td>{apt.B_Name}</td>
                   <td style={{ color: '#34d399', fontWeight: 700 }}>
-                    ${apt.Payable_amount ? parseFloat(apt.Payable_amount).toFixed(2) : 'N/A'}
+                    ₹{apt.Payable_amount ? parseFloat(apt.Payable_amount).toFixed(2) : 'N/A'}
                   </td>
                 </tr>
               ))}

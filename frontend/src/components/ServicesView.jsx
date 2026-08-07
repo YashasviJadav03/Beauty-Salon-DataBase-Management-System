@@ -181,7 +181,7 @@ export default function ServicesView({ user, API_URL, onAppointmentBooked }) {
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
                   <span className="badge badge-gold">{ser.Category}</span>
-                  <h3 style={{ color: 'var(--primary)', fontSize: '1.4rem', margin: 0 }}>${parseFloat(ser.Ser_Price).toFixed(2)}</h3>
+                  <h3 style={{ color: 'var(--primary)', fontSize: '1.4rem', margin: 0 }}>₹{parseFloat(ser.Ser_Price).toFixed(2)}</h3>
                 </div>
                 <h3 style={{ fontSize: '1.15rem', marginBottom: '8px' }}>{ser.Ser_Name}</h3>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '16px' }}>
@@ -211,7 +211,7 @@ export default function ServicesView({ user, API_URL, onAppointmentBooked }) {
               <span className="badge badge-gold" style={{ marginBottom: '8px' }}>{m.Duration} Months Plan</span>
               <h3 style={{ fontSize: '1.5rem', margin: '4px 0 12px 0' }}>{m.M_name} Club</h3>
               <h2 style={{ color: 'var(--primary)', fontSize: '2rem', marginBottom: '16px' }}>
-                ${parseFloat(m.M_Price).toFixed(2)}
+                ₹{parseFloat(m.M_Price).toFixed(2)}
               </h2>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '20px' }}>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -234,7 +234,7 @@ export default function ServicesView({ user, API_URL, onAppointmentBooked }) {
         <div className="modal-overlay" onClick={() => setBookingService(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h3 style={{ fontSize: '1.3rem', marginBottom: '4px' }}>Book {bookingService.Ser_Name}</h3>
-            <p style={{ color: 'var(--primary)', fontWeight: 600, marginBottom: '16px' }}>Base Price: ${parseFloat(bookingService.Ser_Price).toFixed(2)}</p>
+            <p style={{ color: 'var(--primary)', fontWeight: 600, marginBottom: '16px' }}>Base Price: ₹{parseFloat(bookingService.Ser_Price).toFixed(2)}</p>
 
             {bookingStatus.error && <div style={{ color: '#fca5a5', background: 'rgba(239, 68, 68, 0.15)', padding: '10px', borderRadius: '8px', marginBottom: '12px', fontSize: '0.88rem' }}>{bookingStatus.error}</div>}
             {bookingStatus.success && <div style={{ color: '#34d399', background: 'rgba(16, 185, 129, 0.15)', padding: '10px', borderRadius: '8px', marginBottom: '12px', fontSize: '0.88rem' }}>{bookingStatus.success}</div>}

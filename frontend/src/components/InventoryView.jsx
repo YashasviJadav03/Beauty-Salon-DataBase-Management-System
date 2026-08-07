@@ -79,7 +79,7 @@ export default function InventoryView({ API_URL }) {
                   <tr key={p.Product_ID}>
                     <td style={{ fontWeight: 600 }}>{p.P_name}</td>
                     <td><span className="badge badge-gold">{p.BrandName}</span></td>
-                    <td style={{ color: 'var(--primary)', fontWeight: 700 }}>${parseFloat(p.SellingPrice).toFixed(2)}</td>
+                    <td style={{ color: 'var(--primary)', fontWeight: 700 }}>₹{parseFloat(p.SellingPrice).toFixed(2)}</td>
                     <td>
                       {p.Stock < 25 ? (
                         <span className="badge badge-danger"><AlertTriangle size={12} /> Low ({p.Stock} left)</span>
