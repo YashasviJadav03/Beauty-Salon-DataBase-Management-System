@@ -1,13 +1,12 @@
 import React from 'react';
-import { Scissors, User, LogOut, ShieldCheck, Sparkles, Database, Calendar, Package, DollarSign, Users } from 'lucide-react';
+import { Scissors, User, LogOut, ShieldCheck, Sparkles, Database, Calendar, Package, DollarSign, ChevronDown } from 'lucide-react';
 
 export default function Navbar({ user, activeTab, setActiveTab, onOpenAuth, onLogout, onQuickLogin }) {
   return (
     <header style={{
-      background: 'rgba(255, 255, 255, 0.95)',
-      backdropFilter: 'blur(12px)',
+      background: '#ffffff',
       borderBottom: '1px solid #e2e8f0',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.02)',
+      boxShadow: '0 2px 12px rgba(15, 23, 42, 0.03)',
       position: 'sticky',
       top: 0,
       zIndex: 100
@@ -19,124 +18,262 @@ export default function Navbar({ user, activeTab, setActiveTab, onOpenAuth, onLo
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        flexWrap: 'wrap',
-        gap: '16px'
+        gap: '20px'
       }}>
         {/* Brand Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }} onClick={() => setActiveTab('services')}>
+        <div 
+          style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', flexShrink: 0 }} 
+          onClick={() => setActiveTab('services')}
+        >
           <div style={{
-            background: '#0f172a',
-            width: '40px',
-            height: '40px',
+            background: 'linear-gradient(135deg, #be185d 0%, #9d174d 100%)',
+            width: '38px',
+            height: '38px',
             borderRadius: '10px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 2px 8px rgba(15,23,42,0.15)'
+            boxShadow: '0 3px 10px rgba(190, 24, 93, 0.2)'
           }}>
-            <Scissors size={20} color="#ffffff" />
+            <Scissors size={18} color="#ffffff" />
           </div>
           <div>
-            <h2 style={{ fontSize: '1.2rem', margin: 0, lineHeight: 1.2, color: '#0f172a' }}>Luxe Salon & Spa</h2>
-            <p style={{ fontSize: '0.7rem', color: '#be185d', margin: 0, letterSpacing: '0.5px', fontWeight: 600 }}>DATABASE MANAGEMENT SYSTEM</p>
+            <h2 style={{ fontSize: '1.15rem', margin: 0, lineHeight: 1.1, color: '#0f172a', fontFamily: "'Playfair Display', serif" }}>
+              Luxe Salon & Spa
+            </h2>
+            <span style={{ fontSize: '0.68rem', color: '#be185d', letterSpacing: '0.5px', fontWeight: 600 }}>
+              MANAGEMENT SYSTEM
+            </span>
           </div>
         </div>
 
-        {/* Dynamic Navigation Tabs based on Role */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+        {/* Dynamic Navigation Tabs */}
+        <nav style={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          gap: '4px',
+          background: '#f8fafc',
+          padding: '4px',
+          borderRadius: '12px',
+          border: '1px solid #e2e8f0'
+        }}>
           <button
-            className={`btn ${activeTab === 'services' ? 'btn-primary' : 'btn-secondary'}`}
+            className="nav-tab"
+            style={{
+              padding: '7px 14px',
+              fontSize: '0.85rem',
+              fontWeight: 600,
+              borderRadius: '8px',
+              border: 'none',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              background: activeTab === 'services' ? '#ffffff' : 'transparent',
+              color: activeTab === 'services' ? '#be185d' : '#64748b',
+              boxShadow: activeTab === 'services' ? '0 2px 6px rgba(0,0,0,0.05)' : 'none',
+              transition: 'all 0.2s'
+            }}
             onClick={() => setActiveTab('services')}
           >
-            <Sparkles size={16} /> Services & Offers
+            <Sparkles size={14} /> Services
           </button>
 
           {user && (
             <button
-              className={`btn ${activeTab === 'appointments' ? 'btn-primary' : 'btn-secondary'}`}
+              className="nav-tab"
+              style={{
+                padding: '7px 14px',
+                fontSize: '0.85rem',
+                fontWeight: 600,
+                borderRadius: '8px',
+                border: 'none',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                background: activeTab === 'appointments' ? '#ffffff' : 'transparent',
+                color: activeTab === 'appointments' ? '#be185d' : '#64748b',
+                boxShadow: activeTab === 'appointments' ? '0 2px 6px rgba(0,0,0,0.05)' : 'none',
+                transition: 'all 0.2s'
+              }}
               onClick={() => setActiveTab('appointments')}
             >
-              <Calendar size={16} /> {user.role === 'customer' ? 'My Appointments' : 'Appointments Schedule'}
+              <Calendar size={14} /> {user.role === 'customer' ? 'My Visits' : 'Appointments'}
             </button>
           )}
 
           {user?.role === 'admin' && (
             <>
               <button
-                className={`btn ${activeTab === 'admin' ? 'btn-primary' : 'btn-secondary'}`}
+                className="nav-tab"
+                style={{
+                  padding: '7px 14px',
+                  fontSize: '0.85rem',
+                  fontWeight: 600,
+                  borderRadius: '8px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  background: activeTab === 'admin' ? '#ffffff' : 'transparent',
+                  color: activeTab === 'admin' ? '#be185d' : '#64748b',
+                  boxShadow: activeTab === 'admin' ? '0 2px 6px rgba(0,0,0,0.05)' : 'none',
+                  transition: 'all 0.2s'
+                }}
                 onClick={() => setActiveTab('admin')}
               >
-                <ShieldCheck size={16} /> Admin Dashboard
+                <ShieldCheck size={14} /> Dashboard
               </button>
               <button
-                className={`btn ${activeTab === 'inventory' ? 'btn-primary' : 'btn-secondary'}`}
+                className="nav-tab"
+                style={{
+                  padding: '7px 14px',
+                  fontSize: '0.85rem',
+                  fontWeight: 600,
+                  borderRadius: '8px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  background: activeTab === 'inventory' ? '#ffffff' : 'transparent',
+                  color: activeTab === 'inventory' ? '#be185d' : '#64748b',
+                  boxShadow: activeTab === 'inventory' ? '0 2px 6px rgba(0,0,0,0.05)' : 'none',
+                  transition: 'all 0.2s'
+                }}
                 onClick={() => setActiveTab('inventory')}
               >
-                <Package size={16} /> Inventory
+                <Package size={14} /> Inventory
               </button>
               <button
-                className={`btn ${activeTab === 'billing' ? 'btn-primary' : 'btn-secondary'}`}
+                className="nav-tab"
+                style={{
+                  padding: '7px 14px',
+                  fontSize: '0.85rem',
+                  fontWeight: 600,
+                  borderRadius: '8px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  background: activeTab === 'billing' ? '#ffffff' : 'transparent',
+                  color: activeTab === 'billing' ? '#be185d' : '#64748b',
+                  boxShadow: activeTab === 'billing' ? '0 2px 6px rgba(0,0,0,0.05)' : 'none',
+                  transition: 'all 0.2s'
+                }}
                 onClick={() => setActiveTab('billing')}
               >
-                <DollarSign size={16} /> Billing
+                <DollarSign size={14} /> Billing
               </button>
               <button
-                className={`btn ${activeTab === 'queries' ? 'btn-primary' : 'btn-secondary'}`}
+                className="nav-tab"
+                style={{
+                  padding: '7px 14px',
+                  fontSize: '0.85rem',
+                  fontWeight: 600,
+                  borderRadius: '8px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  background: activeTab === 'queries' ? '#ffffff' : 'transparent',
+                  color: activeTab === 'queries' ? '#be185d' : '#64748b',
+                  boxShadow: activeTab === 'queries' ? '0 2px 6px rgba(0,0,0,0.05)' : 'none',
+                  transition: 'all 0.2s'
+                }}
                 onClick={() => setActiveTab('queries')}
               >
-                <Database size={16} /> SQL Analytics
+                <Database size={14} /> SQL Engine
               </button>
             </>
           )}
         </nav>
 
-        {/* User Auth Info & Quick Demo Switcher */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          {/* Demo Login Quick Links */}
-          <div style={{ display: 'flex', gap: '6px' }}>
+        {/* Right Utility Bar: Quick Demo & User Profile */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
+          {/* Subtle Demo Account Selector Pill */}
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            background: '#f8fafc', 
+            borderRadius: '10px', 
+            border: '1px solid #e2e8f0', 
+            padding: '2px 4px' 
+          }}>
+            <span style={{ fontSize: '0.7rem', color: '#94a3b8', padding: '0 6px', fontWeight: 600 }}>DEMO:</span>
             <button
-              className="btn btn-secondary"
-              style={{ fontSize: '0.75rem', padding: '6px 10px' }}
-              title="Quick Demo Customer Login"
+              style={{
+                fontSize: '0.72rem',
+                fontWeight: 600,
+                padding: '4px 8px',
+                border: 'none',
+                borderRadius: '6px',
+                background: user?.role === 'customer' ? '#ffffff' : 'transparent',
+                color: user?.role === 'customer' ? '#be185d' : '#64748b',
+                cursor: 'pointer'
+              }}
               onClick={() => onQuickLogin('customer@salon.com', 'customer123')}
             >
-              Demo Cust
+              Cust
             </button>
             <button
-              className="btn btn-secondary"
-              style={{ fontSize: '0.75rem', padding: '6px 10px' }}
-              title="Quick Demo Staff Login"
+              style={{
+                fontSize: '0.72rem',
+                fontWeight: 600,
+                padding: '4px 8px',
+                border: 'none',
+                borderRadius: '6px',
+                background: user?.role === 'staff' ? '#ffffff' : 'transparent',
+                color: user?.role === 'staff' ? '#be185d' : '#64748b',
+                cursor: 'pointer'
+              }}
               onClick={() => onQuickLogin('staff@salon.com', 'staff123')}
             >
-              Demo Staff
+              Staff
             </button>
             <button
-              className="btn btn-secondary"
-              style={{ fontSize: '0.75rem', padding: '6px 10px', borderColor: '#be185d', color: '#be185d' }}
-              title="Quick Demo Admin Login"
+              style={{
+                fontSize: '0.72rem',
+                fontWeight: 600,
+                padding: '4px 8px',
+                border: 'none',
+                borderRadius: '6px',
+                background: user?.role === 'admin' ? '#ffffff' : 'transparent',
+                color: user?.role === 'admin' ? '#be185d' : '#64748b',
+                cursor: 'pointer'
+              }}
               onClick={() => onQuickLogin('admin@salon.com', 'admin123')}
             >
-              Demo Admin
+              Admin
             </button>
           </div>
 
           {user ? (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#0f172a' }}>
-                  {user.profile?.C_Name || user.profile?.S_name || user.profile?.A_Name || user.email}
-                </div>
-                <span className={`badge ${user.role === 'admin' ? 'badge-gold' : user.role === 'staff' ? 'badge-warning' : 'badge-success'}`}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#0f172a', maxWidth: '120px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                  {user.profile?.C_Name || user.profile?.S_name || user.profile?.A_Name || user.email.split('@')[0]}
+                </span>
+                <span className="badge badge-gold" style={{ fontSize: '0.65rem', padding: '1px 6px' }}>
                   {user.role}
                 </span>
               </div>
-              <button className="btn btn-danger" style={{ padding: '8px 12px' }} onClick={onLogout}>
-                <LogOut size={16} />
+              <button 
+                className="btn btn-secondary" 
+                style={{ padding: '6px 8px', color: '#ef4444', borderColor: '#fecaca', background: '#fef2f2' }} 
+                onClick={onLogout}
+                title="Sign Out"
+              >
+                <LogOut size={14} />
               </button>
             </div>
           ) : (
-            <button className="btn btn-primary" onClick={onOpenAuth}>
-              <User size={16} /> Sign In
+            <button className="btn btn-primary" style={{ padding: '7px 14px', fontSize: '0.85rem' }} onClick={onOpenAuth}>
+              <User size={14} /> Sign In
             </button>
           )}
         </div>
