@@ -1,7 +1,7 @@
 import React from 'react';
-import { Scissors, User, LogOut, ShieldCheck, Sparkles, Database, Calendar, Package, DollarSign, ChevronDown } from 'lucide-react';
+import { Scissors, User, LogOut, ShieldCheck, Sparkles, Database, Calendar, Package, DollarSign, UserPlus } from 'lucide-react';
 
-export default function Navbar({ user, activeTab, setActiveTab, onOpenAuth, onLogout, onQuickLogin }) {
+export default function Navbar({ user, activeTab, setActiveTab, onOpenAuth, onLogout }) {
   return (
     <header style={{
       background: '#ffffff',
@@ -47,7 +47,7 @@ export default function Navbar({ user, activeTab, setActiveTab, onOpenAuth, onLo
           </div>
         </div>
 
-        {/* Dynamic Navigation Tabs */}
+        {/* Navigation Tabs */}
         <nav style={{ 
           display: 'flex', 
           alignItems: 'center', 
@@ -193,69 +193,12 @@ export default function Navbar({ user, activeTab, setActiveTab, onOpenAuth, onLo
           )}
         </nav>
 
-        {/* Right Utility Bar: Quick Demo & User Profile */}
+        {/* Right User Authentication Bar */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
-          {/* Subtle Demo Account Selector Pill */}
-          <div style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            background: '#f8fafc', 
-            borderRadius: '10px', 
-            border: '1px solid #e2e8f0', 
-            padding: '2px 4px' 
-          }}>
-            <span style={{ fontSize: '0.7rem', color: '#94a3b8', padding: '0 6px', fontWeight: 600 }}>DEMO:</span>
-            <button
-              style={{
-                fontSize: '0.72rem',
-                fontWeight: 600,
-                padding: '4px 8px',
-                border: 'none',
-                borderRadius: '6px',
-                background: user?.role === 'customer' ? '#ffffff' : 'transparent',
-                color: user?.role === 'customer' ? '#be185d' : '#64748b',
-                cursor: 'pointer'
-              }}
-              onClick={() => onQuickLogin('customer@salon.com', 'customer123')}
-            >
-              Cust
-            </button>
-            <button
-              style={{
-                fontSize: '0.72rem',
-                fontWeight: 600,
-                padding: '4px 8px',
-                border: 'none',
-                borderRadius: '6px',
-                background: user?.role === 'staff' ? '#ffffff' : 'transparent',
-                color: user?.role === 'staff' ? '#be185d' : '#64748b',
-                cursor: 'pointer'
-              }}
-              onClick={() => onQuickLogin('staff@salon.com', 'staff123')}
-            >
-              Staff
-            </button>
-            <button
-              style={{
-                fontSize: '0.72rem',
-                fontWeight: 600,
-                padding: '4px 8px',
-                border: 'none',
-                borderRadius: '6px',
-                background: user?.role === 'admin' ? '#ffffff' : 'transparent',
-                color: user?.role === 'admin' ? '#be185d' : '#64748b',
-                cursor: 'pointer'
-              }}
-              onClick={() => onQuickLogin('admin@salon.com', 'admin123')}
-            >
-              Admin
-            </button>
-          </div>
-
           {user ? (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-                <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#0f172a', maxWidth: '120px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#0f172a', maxWidth: '140px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                   {user.profile?.C_Name || user.profile?.S_name || user.profile?.A_Name || user.email.split('@')[0]}
                 </span>
                 <span className="badge badge-gold" style={{ fontSize: '0.65rem', padding: '1px 6px' }}>
@@ -264,17 +207,22 @@ export default function Navbar({ user, activeTab, setActiveTab, onOpenAuth, onLo
               </div>
               <button 
                 className="btn btn-secondary" 
-                style={{ padding: '6px 8px', color: '#ef4444', borderColor: '#fecaca', background: '#fef2f2' }} 
+                style={{ padding: '7px 10px', color: '#ef4444', borderColor: '#fecaca', background: '#fef2f2' }} 
                 onClick={onLogout}
                 title="Sign Out"
               >
-                <LogOut size={14} />
+                <LogOut size={14} /> Sign Out
               </button>
             </div>
           ) : (
-            <button className="btn btn-primary" style={{ padding: '7px 14px', fontSize: '0.85rem' }} onClick={onOpenAuth}>
-              <User size={14} /> Sign In
-            </button>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <button className="btn btn-secondary" style={{ padding: '7px 14px', fontSize: '0.85rem' }} onClick={onOpenAuth}>
+                <User size={14} /> Sign In
+              </button>
+              <button className="btn btn-primary" style={{ padding: '7px 14px', fontSize: '0.85rem' }} onClick={onOpenAuth}>
+                <UserPlus size={14} /> Register
+              </button>
+            </div>
           )}
         </div>
       </div>
