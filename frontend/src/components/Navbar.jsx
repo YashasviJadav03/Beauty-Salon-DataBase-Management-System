@@ -4,10 +4,10 @@ import { Scissors, User, LogOut, ShieldCheck, Sparkles, Database, Calendar, Pack
 export default function Navbar({ user, activeTab, setActiveTab, onOpenAuth, onLogout, onQuickLogin }) {
   return (
     <header style={{
-      background: 'rgba(255, 255, 255, 0.92)',
-      backdropFilter: 'blur(16px)',
-      borderBottom: '1px solid #fbcfe8',
-      boxShadow: '0 4px 20px rgba(236, 72, 153, 0.06)',
+      background: 'rgba(255, 255, 255, 0.95)',
+      backdropFilter: 'blur(12px)',
+      borderBottom: '1px solid #e2e8f0',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.02)',
       position: 'sticky',
       top: 0,
       zIndex: 100
@@ -15,7 +15,7 @@ export default function Navbar({ user, activeTab, setActiveTab, onOpenAuth, onLo
       <div style={{
         maxWidth: '1320px',
         margin: '0 auto',
-        padding: '14px 24px',
+        padding: '12px 24px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -25,20 +25,20 @@ export default function Navbar({ user, activeTab, setActiveTab, onOpenAuth, onLo
         {/* Brand Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }} onClick={() => setActiveTab('services')}>
           <div style={{
-            background: 'linear-gradient(135deg, #ec4899 0%, #db2777 100%)',
-            width: '42px',
-            height: '42px',
-            borderRadius: '12px',
+            background: '#0f172a',
+            width: '40px',
+            height: '40px',
+            borderRadius: '10px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 4px 14px rgba(236, 72, 153, 0.35)'
+            boxShadow: '0 2px 8px rgba(15,23,42,0.15)'
           }}>
-            <Scissors size={22} color="#ffffff" />
+            <Scissors size={20} color="#ffffff" />
           </div>
           <div>
-            <h2 style={{ fontSize: '1.25rem', margin: 0, lineHeight: 1.2, color: '#831843' }}>Luxe Salon & Spa</h2>
-            <p style={{ fontSize: '0.72rem', color: '#db2777', margin: 0, letterSpacing: '1px', fontWeight: 600 }}>DATABASE MANAGEMENT SYSTEM</p>
+            <h2 style={{ fontSize: '1.2rem', margin: 0, lineHeight: 1.2, color: '#0f172a' }}>Luxe Salon & Spa</h2>
+            <p style={{ fontSize: '0.7rem', color: '#be185d', margin: 0, letterSpacing: '0.5px', fontWeight: 600 }}>DATABASE MANAGEMENT SYSTEM</p>
           </div>
         </div>
 
@@ -112,7 +112,7 @@ export default function Navbar({ user, activeTab, setActiveTab, onOpenAuth, onLo
             </button>
             <button
               className="btn btn-secondary"
-              style={{ fontSize: '0.75rem', padding: '6px 10px', borderColor: '#ec4899', color: '#be185d' }}
+              style={{ fontSize: '0.75rem', padding: '6px 10px', borderColor: '#be185d', color: '#be185d' }}
               title="Quick Demo Admin Login"
               onClick={() => onQuickLogin('admin@salon.com', 'admin123')}
             >
@@ -123,7 +123,7 @@ export default function Navbar({ user, activeTab, setActiveTab, onOpenAuth, onLo
           {user ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#831843' }}>
+                <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#0f172a' }}>
                   {user.profile?.C_Name || user.profile?.S_name || user.profile?.A_Name || user.email}
                 </div>
                 <span className={`badge ${user.role === 'admin' ? 'badge-gold' : user.role === 'staff' ? 'badge-warning' : 'badge-success'}`}>
