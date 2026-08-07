@@ -9,7 +9,7 @@ import InventoryView from './components/InventoryView';
 import BillingView from './components/BillingView';
 import QueriesView from './components/QueriesView';
 
-const API_URL = 'https://beauty-salon-database-management-system.onrender.com';
+const API_URL = 'https://beauty-salon-database-management-system.onrender.com/api';
 
 export default function App() {
   const [user, setUser] = useState(null);
