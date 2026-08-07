@@ -9,7 +9,7 @@ import InventoryView from './components/InventoryView';
 import BillingView from './components/BillingView';
 import QueriesView from './components/QueriesView';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://beauty-salon-database-management-system.onrender.com';
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -23,19 +23,19 @@ export default function App() {
       axios.get(`${API_URL}/auth/me`, {
         headers: { Authorization: `Bearer ${token}` }
       })
-      .then(res => {
-        setUser({
-          userId: res.data.user.User_ID,
-          email: res.data.user.Email,
-          role: res.data.user.Role,
-          refId: res.data.user.Ref_ID,
-          profile: res.data.profile
+        .then(res => {
+          setUser({
+            userId: res.data.user.User_ID,
+            email: res.data.user.Email,
+            role: res.data.user.Role,
+            refId: res.data.user.Ref_ID,
+            profile: res.data.profile
+          });
+        })
+        .catch(() => {
+          localStorage.removeItem('token');
+          setUser(null);
         });
-      })
-      .catch(() => {
-        localStorage.removeItem('token');
-        setUser(null);
-      });
     }
   }, []);
 
