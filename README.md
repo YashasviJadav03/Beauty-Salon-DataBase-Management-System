@@ -1,6 +1,5 @@
 # 💇‍♀️ Beauty Salon Database Management System
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Web%20App-gold?style=for-the-badge&logo=render)](https://beauty-salon-database-management-system-1.onrender.com)
 👉 **Live Web Application**: [https://beauty-salon-database-management-system-1.onrender.com](https://beauty-salon-database-management-system-1.onrender.com)
 
 This project is a real-world simulation of how a multi-branch beauty salon manages its day-to-day operations using a robust and well-designed relational database system and a modern full-stack web application.
